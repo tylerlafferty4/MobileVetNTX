@@ -7,3 +7,16 @@
 //
 
 import Foundation
+import UIKit
+
+class ButtonCell : UITableViewCell {
+    
+    // -- Outlets --
+    @IBOutlet var submitBtn: UIButton!
+    
+    override func awakeFromNib() {
+        backgroundColor = UIColor.clear
+        contentView.backgroundColor = UIColor.clear
+        submitBtn.layer.cornerRadius = 3
+    }
+}

@@ -7,3 +7,18 @@
 //
 
 import Foundation
+import UIKit
+
+class TextViewCell : UITableViewCell {
+    
+    // -- Outlets --
+    @IBOutlet var titleLbl: UILabel!
+    @IBOutlet var message: UITextView!
+    
+    override func awakeFromNib() {
+        backgroundColor = UIColor.clear
+        contentView.backgroundColor = UIColor.clear
+        message.layer.borderWidth = 1
+        message.layer.borderColor = UIColor.black.cgColor
+    }
+}
