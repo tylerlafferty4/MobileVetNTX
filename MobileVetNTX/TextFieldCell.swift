@@ -9,19 +9,30 @@
 import Foundation
 import UIKit
 
-class TextFieldCell : UITableViewCell {
+protocol TextFieldCellDelegate {
+    func didEditTextField(text : String, atIndex : Int)
+}
+
+class TextFieldCell : UITableViewCell, UITextFieldDelegate {
     
     // -- Outlets --
     @IBOutlet var titleLbl: UILabel!
     @IBOutlet var textBox: UITextField!
     
-    func setupCell(indexPath : IndexPath) {
+    var delegate: TextFieldCellDelegate!
+    var index: Int! = 0
+    
+    override func awakeFromNib() {
+        textBox.delegate = self
         backgroundColor = UIColor.clear
         contentView.backgroundColor = UIColor.clear
+    }
+    
+    func setupCell(indexPath : IndexPath) {
         textBox.keyboardType = .default
         switch indexPath.row {
         case 0:
-            titleLbl.text = "Name *"
+            titleLbl.text = "Name"
         case 1:
             titleLbl.text = "Phone *"
             textBox.keyboardType = .phonePad
@@ -34,12 +45,27 @@ class TextFieldCell : UITableViewCell {
         case 5:
             titleLbl.text = "ZIP Code *"
             textBox.keyboardType = .numberPad
+        case 6:
+            titleLbl.text = "Email *"
+            textBox.keyboardType = .emailAddress
         case 7:
             titleLbl.text = "Date *"
         case 8:
-            titleLbl.text = "Pet Name *"
+            titleLbl.text = "Pet Name"
         default:
             break
+        }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField : UITextField) {
+        // call back with the delegate here
+        if let del = delegate {
+            del.didEditTextField(text: textField.text!, atIndex: self.index)
         }
     }
 }
