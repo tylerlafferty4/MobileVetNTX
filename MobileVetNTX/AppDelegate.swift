@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import Fabric
+import Crashlytics
 
-let purpleColor = UIColor(red: 80, green: 9, blue: 95, alpha: 1.0)
+
+let purpleColor = UIColor(red: 80/255, green: 9/255, blue: 95/255, alpha: 1.0)
 
 // Put this piece of code anywhere you like
 extension UIViewController {
@@ -32,6 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         UIApplication.shared.statusBarStyle = .lightContent
+        Fabric.with([Crashlytics.self])
         return true
     }
 

@@ -7,133 +7,28 @@
 //
 
 import UIKit
-import Eureka
 
-class AppointmentsViewController: FormViewController {
+enum FormType {
+    case text, textView, date, phone
+}
+
+class FormObject {
+    var type: FormType!
+    var tag: String!
     
-    @IBOutlet var submitBtn: UIButton!
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        submitBtn.layer.cornerRadius = 3
-        
-        LabelRow.defaultCellUpdate = { cell, row in
-            cell.contentView.backgroundColor = .red
-            cell.textLabel?.textColor = .white
-            cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 13)
-            cell.textLabel?.textAlignment = .right
-            
-        }
-        
-        TextRow.defaultCellUpdate = { cell, row in
-            cell.backgroundColor = UIColor.groupTableViewBackground
-            cell.titleLabel?.textColor = .black
-            if !row.isValid {
-                cell.titleLabel?.textColor = .red
-            }
-        }
-        
-        PhoneRow.defaultCellUpdate = { cell, row in
-            cell.backgroundColor = UIColor.groupTableViewBackground
-            cell.titleLabel?.textColor = .black
-            if !row.isValid {
-                cell.titleLabel?.textColor = .red
-            }
-        }
-        
-        DateInlineRow.defaultCellUpdate = { cell, row in
-            cell.backgroundColor = UIColor.groupTableViewBackground
-            if !row.isValid {
-                cell.textLabel?.textColor = .red
-            }
-        }
-        
-        TextAreaRow.defaultCellUpdate = { cell, row in
-            cell.backgroundColor = UIColor.groupTableViewBackground
-        }
-        
-        ButtonRow.defaultCellUpdate = { cell, row in
-            cell.backgroundColor = .blue
-        }
-        
-        form +++ Section("")
-            <<< TextRow("name"){
-                $0.title = "Name"
-                $0.add(rule: RuleRequired())
-                $0.placeholder = "John Doe"
-                $0.validationOptions = .validatesOnChange
-            }
-            <<< PhoneRow("phoneNumber"){
-                $0.add(rule: RuleRequired())
-                $0.title = "Phone Number"
-                $0.add(rule: RuleMinLength(minLength: 10))
-                $0.add(rule: RuleMaxLength(maxLength: 10))
-                $0.placeholder = "1234567890"
-                $0.validationOptions = .validatesOnBlur
-            }
-            <<< TextRow("streetAdress"){
-                $0.add(rule: RuleRequired())
-                $0.title = "Street Address"
-                $0.placeholder = "1234 Cherry Ln"
-                $0.validationOptions = .validatesOnBlur
-            }
-            <<< TextRow("addressTwo"){
-                $0.add(rule: RuleRequired())
-                $0.title = "Address Line 2"
-                $0.placeholder = "APT #, Unit #, etc"
-                $0.validationOptions = .validatesOnBlur
-            }
-            <<< TextRow("city"){
-                $0.add(rule: RuleRequired())
-                $0.title = "City"
-                $0.placeholder = "Enter City Here"
-                $0.validationOptions = .validatesOnBlur
-            }
-            <<< PhoneRow("zipCode"){
-                $0.add(rule: RuleRequired())
-                $0.title = "Zip Code"
-                $0.add(rule: RuleMinLength(minLength: 5))
-                $0.add(rule: RuleMaxLength(maxLength: 5))
-                $0.placeholder = "Enter Zip Code Here"
-                $0.validationOptions = .validatesOnBlur
-            }
-            <<< DateInlineRow("date"){
-                $0.add(rule: RuleRequired())
-                $0.title = "Date"
-                $0.value = Date(timeIntervalSinceReferenceDate: 0)
-                $0.validationOptions = .validatesOnBlur
-            }
-            <<< TextRow("petName"){
-                $0.add(rule: RuleRequired())
-                $0.title = "Pet Name"
-                $0.placeholder = "Enter Pet Name Here"
-                $0.validationOptions = .validatesOnBlur
-            }
-            <<< TextAreaRow("nature"){
-                $0.add(rule: RuleRequired())
-                $0.textAreaHeight = .dynamic(initialTextViewHeight: 50)
-                $0.placeholder = "Enter nature of visit here"
-                $0.validationOptions = .validatesOnBlur
-            }
-    }
-    
-    @IBAction func submitTapped(_ sender: Any) {
-        let row: TextRow? = form.rowBy(tag: "name")
-        if row?.isValid == true {
-            print("Valid")
-        } else {
-            print("Invalid")
-        }
+    init (type : FormType, tag : String) {
+        self.type = type
+        self.tag = tag
     }
 }
 
-////UIViewController {
-//    
+class AppointmentsViewController: UIViewController {
+    
+    // -- Outlets --
+    @IBOutlet var webView: UIWebView!
+
+}
+    
 //    // -- Outlets --
 //    @IBOutlet var tableView: UITableView!
 //

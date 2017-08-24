@@ -9,8 +9,7 @@
 /* Begin PBXBuildFile section */
 		D834E9D41F0D4D79009F0225 /* TextViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D834E9D31F0D4D79009F0225 /* TextViewCell.swift */; };
 		D834E9D61F0D5097009F0225 /* ButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D834E9D51F0D5097009F0225 /* ButtonCell.swift */; };
-		D834E9E01F0E8F09009F0225 /* Eureka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D834E9DF1F0E8F09009F0225 /* Eureka.framework */; };
-		D834E9E11F0E8F09009F0225 /* Eureka.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D834E9DF1F0E8F09009F0225 /* Eureka.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D87110BD1F4E59DF003CAC36 /* ServicesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87110BC1F4E59DF003CAC36 /* ServicesCell.swift */; };
 		D8A2E8B21F0AC00E00FDD2CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A2E8B11F0AC00E00FDD2CE /* AppDelegate.swift */; };
 		D8A2E8B41F0AC00E00FDD2CE /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A2E8B31F0AC00E00FDD2CE /* AboutUsViewController.swift */; };
 		D8A2E8B61F0AC00E00FDD2CE /* AppointmentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A2E8B51F0AC00E00FDD2CE /* AppointmentsViewController.swift */; };
@@ -22,6 +21,9 @@
 		D8A2E8CA1F0ADA6900FDD2CE /* ContactUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A2E8C91F0ADA6900FDD2CE /* ContactUsViewController.swift */; };
 		D8A2E8CD1F0B362E00FDD2CE /* TextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A2E8CC1F0B362E00FDD2CE /* TextFieldCell.swift */; };
 		D8A2E8CF1F0B364B00FDD2CE /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A2E8CE1F0B364B00FDD2CE /* CardCell.swift */; };
+		D8D4313F1F0FDF0000355359 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8D4313D1F0FDF0000355359 /* Fabric.framework */; };
+		D8D431401F0FDF0100355359 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8D4313E1F0FDF0000355359 /* Crashlytics.framework */; };
+		D8D431421F10110500355359 /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D431411F10110400355359 /* CustomAlertView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,7 +33,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				D834E9E11F0E8F09009F0225 /* Eureka.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -41,7 +42,7 @@
 /* Begin PBXFileReference section */
 		D834E9D31F0D4D79009F0225 /* TextViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextViewCell.swift; sourceTree = "<group>"; };
 		D834E9D51F0D5097009F0225 /* ButtonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonCell.swift; sourceTree = "<group>"; };
-		D834E9DF1F0E8F09009F0225 /* Eureka.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Eureka.framework; path = Carthage/Build/iOS/Eureka.framework; sourceTree = "<group>"; };
+		D87110BC1F4E59DF003CAC36 /* ServicesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServicesCell.swift; sourceTree = "<group>"; };
 		D8A2E8AE1F0AC00E00FDD2CE /* MobileVetNTX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileVetNTX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8A2E8B11F0AC00E00FDD2CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D8A2E8B31F0AC00E00FDD2CE /* AboutUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
@@ -55,6 +56,9 @@
 		D8A2E8C91F0ADA6900FDD2CE /* ContactUsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactUsViewController.swift; sourceTree = "<group>"; };
 		D8A2E8CC1F0B362E00FDD2CE /* TextFieldCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldCell.swift; sourceTree = "<group>"; };
 		D8A2E8CE1F0B364B00FDD2CE /* CardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
+		D8D4313D1F0FDF0000355359 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		D8D4313E1F0FDF0000355359 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		D8D431411F10110400355359 /* CustomAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAlertView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,7 +66,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D834E9E01F0E8F09009F0225 /* Eureka.framework in Frameworks */,
+				D8D431401F0FDF0100355359 /* Crashlytics.framework in Frameworks */,
+				D8D4313F1F0FDF0000355359 /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,14 +77,24 @@
 		D834E9D71F0E8CDF009F0225 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D8D4313D1F0FDF0000355359 /* Fabric.framework */,
+				D8D4313E1F0FDF0000355359 /* Crashlytics.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D87110BB1F4E59CB003CAC36 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				D8A2E8C51F0AD9FD00FDD2CE /* ServicesViewController.swift */,
+				D87110BC1F4E59DF003CAC36 /* ServicesCell.swift */,
+			);
+			name = Services;
 			sourceTree = "<group>";
 		};
 		D8A2E8A51F0AC00E00FDD2CE = {
 			isa = PBXGroup;
 			children = (
-				D834E9DF1F0E8F09009F0225 /* Eureka.framework */,
 				D8A2E8B01F0AC00E00FDD2CE /* MobileVetNTX */,
 				D8A2E8AF1F0AC00E00FDD2CE /* Products */,
 				D834E9D71F0E8CDF009F0225 /* Frameworks */,
@@ -101,13 +116,14 @@
 				D8A2E8B31F0AC00E00FDD2CE /* AboutUsViewController.swift */,
 				D8A2E8CB1F0B361700FDD2CE /* Appointments */,
 				D8A2E8B71F0AC00E00FDD2CE /* Main.storyboard */,
-				D8A2E8C51F0AD9FD00FDD2CE /* ServicesViewController.swift */,
+				D87110BB1F4E59CB003CAC36 /* Services */,
 				D8A2E8BA1F0AC00E00FDD2CE /* Assets.xcassets */,
 				D8A2E8BC1F0AC00E00FDD2CE /* LaunchScreen.storyboard */,
 				D8A2E8BF1F0AC00E00FDD2CE /* Info.plist */,
 				D8A2E8C71F0ADA4700FDD2CE /* OnlineStoreViewController.swift */,
 				D8A2E8C91F0ADA6900FDD2CE /* ContactUsViewController.swift */,
 				D8A2E8CE1F0B364B00FDD2CE /* CardCell.swift */,
+				D8D431411F10110400355359 /* CustomAlertView.swift */,
 			);
 			path = MobileVetNTX;
 			sourceTree = "<group>";
@@ -134,6 +150,7 @@
 				D8A2E8AB1F0AC00E00FDD2CE /* Frameworks */,
 				D8A2E8AC1F0AC00E00FDD2CE /* Resources */,
 				D834E9E21F0E8F0A009F0225 /* Embed Frameworks */,
+				D8D4313C1F0FDEE500355359 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -192,13 +209,31 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		D8D4313C1F0FDEE500355359 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run 3ab296977799a1c95a272d13bc638212ca2ff873 56f0fa9f66fcc4aa21eaf24da89b6880e6f4b38d3acb137e20bdc98ecbf8b627";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D8A2E8AA1F0AC00E00FDD2CE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				D834E9D41F0D4D79009F0225 /* TextViewCell.swift in Sources */,
+				D87110BD1F4E59DF003CAC36 /* ServicesCell.swift in Sources */,
 				D8A2E8B61F0AC00E00FDD2CE /* AppointmentsViewController.swift in Sources */,
+				D8D431421F10110500355359 /* CustomAlertView.swift in Sources */,
 				D8A2E8C81F0ADA4700FDD2CE /* OnlineStoreViewController.swift in Sources */,
 				D834E9D61F0D5097009F0225 /* ButtonCell.swift in Sources */,
 				D8A2E8B21F0AC00E00FDD2CE /* AppDelegate.swift in Sources */,
@@ -333,6 +368,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = MobileVetNTX/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -350,6 +386,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = MobileVetNTX/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
