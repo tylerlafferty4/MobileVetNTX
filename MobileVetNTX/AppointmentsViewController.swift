@@ -10,7 +10,7 @@ import UIKit
 import MessageUI
 
 enum FormArray: Int {
-    case name = 0, phone, streetAddress, address2, city, zipCode, email, date, petName
+    case name = 0, phone, streetAddress, address2, city, zipCode, email, date, petName, natureOfVisit
 }
 
 enum FormType {
@@ -31,9 +31,10 @@ class AppointmentsViewController: UIViewController {
     
     // -- Outlets --
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var tableBottom: NSLayoutConstraint!
     
     // -- Vars --
-    var formValues: [String] = ["","","","","","","","",""]
+    var formValues: [String] = ["","","","","","","","","",""]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,15 +45,28 @@ class AppointmentsViewController: UIViewController {
         if canSendEmail() {
             self.tableView.isHidden = false
         } else {
-            self.tableView.isHidden = true
+            //self.tableView.isHidden = true
             showAlertWithMessage(message: "Unfortunately you need an email account setup to request a Mobile Appointment. Please configure an account in Settings and try again.")
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        NotificationCenter.default.addObserver(self, selector: #selector(AppointmentsViewController.keyboardWillShowNotification(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(AppointmentsViewController.keyboardWillHideNotification(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         if canSendEmail() {
             self.tableView.isHidden = false
         }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -62,6 +76,33 @@ class AppointmentsViewController: UIViewController {
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
+    }
+    
+    func keyboardWillShowNotification(notification: NSNotification) {
+        updateBottomLayoutConstraintWithNotification(notification: notification)
+    }
+    
+    func keyboardWillHideNotification(notification: NSNotification) {
+        updateBottomLayoutConstraintWithNotification(notification: notification)
+    }
+    
+    func updateBottomLayoutConstraintWithNotification(notification: NSNotification) {
+        let userInfo = notification.userInfo!
+        
+        let animationDuration = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as! NSNumber).doubleValue
+        let keyboardEndFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        let convertedKeyboardEndFrame = view.convert(keyboardEndFrame, from: view.window)
+        let rawAnimationCurve = (notification.userInfo![UIKeyboardAnimationCurveUserInfoKey] as! NSNumber).uint32Value << 16
+        let animationCurve = UIViewAnimationOptions.init(rawValue: UInt(rawAnimationCurve))
+        if convertedKeyboardEndFrame.minY < 550 {
+            tableBottom.constant = view.bounds.maxY - convertedKeyboardEndFrame.minY - 45
+        } else {
+            tableBottom.constant = view.bounds.maxY - convertedKeyboardEndFrame.minY
+        }
+        
+        UIView.animate(withDuration: animationDuration, delay: 0.0, options: [.beginFromCurrentState, animationCurve], animations: {
+            self.view.layoutIfNeeded()
+        }, completion: nil)
     }
 }
 
@@ -74,7 +115,7 @@ extension AppointmentsViewController : UITableViewDelegate, UITableViewDataSourc
         } else if indexPath.row == 10 {
             return 70
         }
-        return 100
+        return 80
     }
     
     
@@ -86,15 +127,19 @@ extension AppointmentsViewController : UITableViewDelegate, UITableViewDataSourc
         if indexPath.row == 9 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "textViewCell", for: indexPath) as! TextViewCell
             cell.titleLbl.text = "Nature of Visit"
+            cell.delegate = self
+            cell.textFieldDel = self
+            cell.message.text = formValues[indexPath.row]
             return cell
         } else if indexPath.row == 10 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "submitCell", for: indexPath) as! ButtonCell
+            cell.delegate = self
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "textFieldCell", for: indexPath) as! TextFieldCell
-            cell.index = indexPath.row
-            cell.delegate = self
             cell.textBox.text = formValues[indexPath.row]
+            addToolBar(textField: cell.textBox)
+            cell.delegate = self
             cell.setupCell(indexPath: indexPath)
             return cell
         }
@@ -111,9 +156,30 @@ extension AppointmentsViewController : UITableViewDelegate, UITableViewDataSourc
 
 // MARK: - TextField Cell Delegate
 extension AppointmentsViewController : TextFieldCellDelegate {
+    func adjustTableOffset(index : Int) {
+        let indexP = IndexPath(row: index, section: 0)
+        self.tableView.scrollToRow(at: indexP, at: .bottom, animated: true)
+    }
     
     func didEditTextField(text: String, atIndex index: Int) {
         formValues[index] = text
+    }
+}
+
+// MARK: - TextView Cell Delegate
+extension AppointmentsViewController : TextViewCellDelegate {
+    
+    func didEditTextView(text : String) {
+        formValues[FormArray.natureOfVisit.rawValue] = text
+    }
+}
+
+// MARK: - Submit Button Delegate
+extension AppointmentsViewController : SubmitButtonDelegate {
+    func didTapSubmit() {
+        if checkTextFields() {
+            sendEmail()
+        }
     }
 }
 
@@ -139,9 +205,9 @@ extension AppointmentsViewController : MFMailComposeViewControllerDelegate {
     func configuredMailComposeViewController() -> MFMailComposeViewController {
         let mailComposerVC = MFMailComposeViewController()
         mailComposerVC.mailComposeDelegate = self // Extremely important to set the --mailComposeDelegate-- property, NOT the --delegate-- property
-        mailComposerVC.setToRecipients(["someone@somewhere.com"])
+        mailComposerVC.setToRecipients(["ntmobilevet@gmail.com"])
         mailComposerVC.setSubject("Mobile Vet Appointment for \(formValues[FormArray.date.rawValue])")
-        mailComposerVC.setMessageBody("Sending e-mail in-app is not so bad!", isHTML: false)
+        mailComposerVC.setMessageBody(getEmailBody(), isHTML: false)
         return mailComposerVC
     }
 }
@@ -150,6 +216,7 @@ extension AppointmentsViewController : MFMailComposeViewControllerDelegate {
 extension AppointmentsViewController {
     
     func checkTextFields() -> Bool {
+        print(formValues)
         if formValues[FormArray.phone.rawValue] == "" {
             showAlertWithMessage(message: "Please enter your phone number")
             return false
@@ -195,6 +262,78 @@ extension AppointmentsViewController {
         alert.showAlertView(superview: self.view, title: "Mobile Vet", text: message, img:"warning")
     }
 }
+
+// MARK: - Email Body
+extension AppointmentsViewController {
+    
+    func getEmailBody() -> String {
+//        var nameEmpty = true
+//        var address2Empty = true
+//        var petNameEmpty = true
+//        var natureEmpty = true
+//        if formValues[FormArray.name.rawValue] != "" {
+//            nameEmpty = false
+//        }
+//        if formValues[FormArray.address2.rawValue] != "" {
+//            address2Empty = false
+//        }
+//        if formValues[FormArray.petName.rawValue] != "" {
+//            petNameEmpty = false
+//        }
+//        if formValues[FormArray.natureOfVisit.rawValue] != "" {
+//            natureEmpty = false
+//        }
+//        return ""
+        if formValues[FormArray.name.rawValue] == "" {
+            formValues[FormArray.name.rawValue] = "N/A"
+        }
+        if formValues[FormArray.address2.rawValue] == "" {
+            formValues[FormArray.address2.rawValue] = "N/A"
+        }
+        if formValues[FormArray.petName.rawValue] == "" {
+            formValues[FormArray.petName.rawValue] = "N/A"
+        }
+        if formValues[FormArray.natureOfVisit.rawValue] == "" {
+            formValues[FormArray.natureOfVisit.rawValue] = "N/A"
+        }
+        return "Dr. Swanton-Vinson,\n\nI would like to request an appointment on \(formValues[FormArray.date.rawValue]).\n\nMy Information\n\nName: \(formValues[FormArray.name.rawValue])\nAddress: \(formValues[FormArray.streetAddress.rawValue])\nAddress Line 2: \(formValues[FormArray.address2.rawValue])\nCity: \(formValues[FormArray.city.rawValue])\nZIP Code: \(formValues[FormArray.zipCode.rawValue])\nEmail: \(formValues[FormArray.email.rawValue])\nPet Name: \(formValues[FormArray.petName.rawValue])\nNature of Visit: \(formValues[FormArray.natureOfVisit.rawValue])\n\nThank you."
+     
+    }
+    
+    func returnEverything() -> String {
+        return ""
+    }
+    
+    func returnNoName() -> String {
+        return ""
+    }
+    
+    func returnNoAddress2() -> String {
+        return ""
+    }
+    
+    func returnNoPetName() -> String {
+        return ""
+    }
+    
+    func returnNoNature() -> String {
+        return ""
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

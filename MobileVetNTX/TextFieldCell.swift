@@ -11,6 +11,7 @@ import UIKit
 
 protocol TextFieldCellDelegate {
     func didEditTextField(text : String, atIndex : Int)
+    func adjustTableOffset(index : Int)
 }
 
 class TextFieldCell : UITableViewCell, UITextFieldDelegate {
@@ -26,10 +27,33 @@ class TextFieldCell : UITableViewCell, UITextFieldDelegate {
         textBox.delegate = self
         backgroundColor = UIColor.clear
         contentView.backgroundColor = UIColor.clear
+        textBox.delegate = self
+    }
+
+    @IBAction func textFieldEditing(_ sender: UITextField) {
+        if sender.tag == 7 {
+            let datePickerView:UIDatePicker = UIDatePicker()
+            datePickerView.datePickerMode = UIDatePickerMode.date
+            sender.inputView = datePickerView
+            datePickerView.addTarget(self, action: #selector(TextFieldCell.datePickerValueChanged), for: UIControlEvents.valueChanged)
+        }
+    }
+    
+    func datePickerValueChanged(sender:UIDatePicker) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .none
+        self.textBox.text = dateFormatter.string(from: sender.date)
+        if let del = delegate {
+            del.didEditTextField(text: dateFormatter.string(from: sender.date), atIndex: FormArray.date.rawValue)
+        }
     }
     
     func setupCell(indexPath : IndexPath) {
+        index = indexPath.row
         textBox.keyboardType = .default
+        textBox.tag = indexPath.row
+        textBox.delegate = self
         switch indexPath.row {
         case 0:
             titleLbl.text = "Name"
@@ -60,6 +84,12 @@ class TextFieldCell : UITableViewCell, UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if let del = delegate {
+            del.adjustTableOffset(index: index)
+        }
     }
     
     func textFieldDidEndEditing(_ textField : UITextField) {

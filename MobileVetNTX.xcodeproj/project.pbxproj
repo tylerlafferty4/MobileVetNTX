@@ -10,6 +10,7 @@
 		D834E9D41F0D4D79009F0225 /* TextViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D834E9D31F0D4D79009F0225 /* TextViewCell.swift */; };
 		D834E9D61F0D5097009F0225 /* ButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D834E9D51F0D5097009F0225 /* ButtonCell.swift */; };
 		D87110BD1F4E59DF003CAC36 /* ServicesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87110BC1F4E59DF003CAC36 /* ServicesCell.swift */; };
+		D87110C31F51B347003CAC36 /* MobileVetShared.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87110C21F51B347003CAC36 /* MobileVetShared.swift */; };
 		D8A2E8B21F0AC00E00FDD2CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A2E8B11F0AC00E00FDD2CE /* AppDelegate.swift */; };
 		D8A2E8B41F0AC00E00FDD2CE /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A2E8B31F0AC00E00FDD2CE /* AboutUsViewController.swift */; };
 		D8A2E8B61F0AC00E00FDD2CE /* AppointmentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A2E8B51F0AC00E00FDD2CE /* AppointmentsViewController.swift */; };
@@ -43,6 +44,7 @@
 		D834E9D31F0D4D79009F0225 /* TextViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextViewCell.swift; sourceTree = "<group>"; };
 		D834E9D51F0D5097009F0225 /* ButtonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonCell.swift; sourceTree = "<group>"; };
 		D87110BC1F4E59DF003CAC36 /* ServicesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServicesCell.swift; sourceTree = "<group>"; };
+		D87110C21F51B347003CAC36 /* MobileVetShared.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MobileVetShared.swift; sourceTree = "<group>"; };
 		D8A2E8AE1F0AC00E00FDD2CE /* MobileVetNTX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileVetNTX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8A2E8B11F0AC00E00FDD2CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D8A2E8B31F0AC00E00FDD2CE /* AboutUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 			children = (
 				D8A2E8CE1F0B364B00FDD2CE /* CardCell.swift */,
 				D8D431411F10110400355359 /* CustomAlertView.swift */,
+				D87110C21F51B347003CAC36 /* MobileVetShared.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -269,6 +272,7 @@
 				D8A2E8C81F0ADA4700FDD2CE /* OnlineStoreViewController.swift in Sources */,
 				D834E9D61F0D5097009F0225 /* ButtonCell.swift in Sources */,
 				D8A2E8B21F0AC00E00FDD2CE /* AppDelegate.swift in Sources */,
+				D87110C31F51B347003CAC36 /* MobileVetShared.swift in Sources */,
 				D8A2E8CF1F0B364B00FDD2CE /* CardCell.swift in Sources */,
 				D8A2E8C61F0AD9FD00FDD2CE /* ServicesViewController.swift in Sources */,
 				D8A2E8B41F0AC00E00FDD2CE /* AboutUsViewController.swift in Sources */,
