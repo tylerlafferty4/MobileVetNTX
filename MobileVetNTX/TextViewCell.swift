@@ -37,7 +37,7 @@ class TextViewCell : UITableViewCell, UITextViewDelegate {
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         if let del = textFieldDel {
-            del.adjustTableOffset(index: FormArray.natureOfVisit.rawValue)
+            del.adjustTableOffset(index: index)
         }
     }
 }

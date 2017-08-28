@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import MessageUI
 
 class ContactUsViewController : UIViewController {
     
@@ -19,7 +20,7 @@ class ContactUsViewController : UIViewController {
     @IBOutlet var tableView: UITableView!
     @IBOutlet var tableBottom: NSLayoutConstraint!
     
-    var values: [String] = ["","",""]
+    var values: [String] = ["","","",""]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -114,38 +115,37 @@ class ContactUsViewController : UIViewController {
 extension ContactUsViewController : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return 5
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 3 {
+            return 150
+        } else if indexPath.row == 4 {
             return 70
         }
-        return 100
+        return 80
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == 3 {
+        if indexPath.row == 4 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "submitCell", for: indexPath) as! ButtonCell
             cell.delegate = self
             return cell
+        } else if indexPath.row == 3 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "textViewCell", for: indexPath) as! TextViewCell
+            cell.titleLbl.text = "Message *"
+            cell.delegate = self
+            cell.textFieldDel = self
+            cell.index = indexPath.row
+            cell.message.text = values[indexPath.row]
+            return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "textFieldCell", for: indexPath) as! TextFieldCell
-            switch indexPath.row {
-            case 0:
-                cell.titleLbl.text = "Name *"
-            case 1:
-                cell.titleLbl.text = "Phone *"
-            case 2:
-                cell.titleLbl.text = "Email *"
-            default:
-                cell.titleLbl.text = ""
-            }
-            cell.delegate = self
-            cell.index = indexPath.row
-            addToolBar(textField: cell.textBox)
-            cell.textBox.tag = indexPath.row
             cell.textBox.text = values[indexPath.row]
+            addToolBar(textField: cell.textBox)
+            cell.delegate = self
+            cell.setupContactUs(indexPath: indexPath)
             return cell
         }
     }
@@ -156,7 +156,7 @@ extension ContactUsViewController : TextFieldCellDelegate {
     
     func adjustTableOffset(index: Int) {
         let indexP = IndexPath(row: index, section: 0)
-        //self.tableView.scrollToRow(at: indexP, at: .bottom, animated: true)
+        self.tableView.scrollToRow(at: indexP, at: .bottom, animated: true)
     }
     
     func didEditTextField(text: String, atIndex: Int) {
@@ -164,11 +164,99 @@ extension ContactUsViewController : TextFieldCellDelegate {
     }
 }
 
+// MARK: - TextViewCell Delegate
+extension ContactUsViewController : TextViewCellDelegate {
+    func didEditTextView(text: String) {
+        values[3] = text
+    }
+}
+
 // MARK: - Submit Button Delegate
 extension ContactUsViewController : SubmitButtonDelegate {
     
     func didTapSubmit() {
+        if checkTextFields() {
+            sendEmail()
+        }
+    }
+}
+
+// MARK: - Mail Compose Delegate
+extension ContactUsViewController : MFMailComposeViewControllerDelegate {
+    
+    func canSendEmail() -> Bool {
+        return MFMailComposeViewController.canSendMail()
+    }
+    
+    func sendEmail() {
+        if canSendEmail() {
+            let mailVc = configuredMailComposeViewController()
+            self.present(mailVc, animated: true, completion: nil)
+        }
+    }
+    
+    // MARK: MFMailComposeViewControllerDelegate Method
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        switch result {
+        case .sent:
+            showSuccessAlert(withMessage: "Email has been sent. We will review your inquiry and respond back to you.")
+            clearValues()
+        case .failed:
+            showAlert(withMessage: "An error has occurred. Please try again later.")
+        default:
+            break
+        }
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
+    func configuredMailComposeViewController() -> MFMailComposeViewController {
+        let mailComposerVC = MFMailComposeViewController()
+        mailComposerVC.mailComposeDelegate = self // Extremely important to set the --mailComposeDelegate-- property, NOT the --delegate-- property
+        mailComposerVC.setToRecipients(["ntmobilevet@gmail.com"])
+        mailComposerVC.setSubject("Contact Inquiry")
+        mailComposerVC.setMessageBody(getEmailBody(), isHTML: false)
+        return mailComposerVC
+    }
+    
+    func getEmailBody() -> String {
+        return "Dr. Swanton-Vinson,\n\nInquiry Information\n\nName: \(values[0])\nPhone Number: \(values[1])\nEmail: \(values[2])\nMessage: \(values[3])\n\nThank you."
+    }
+}
+
+// MARK: - Helpers
+extension ContactUsViewController {
+    
+    func clearValues() {
+        for x in 0..<values.count {
+            values[x] = ""
+        }
+        tableView.reloadData()
+    }
+    
+    func checkTextFields() -> Bool {
         print(values)
+        if values[0] == "" {
+            showAlert(withMessage: "Please enter your name")
+            return false
+        }
+        if values[1] == "" {
+            showAlert(withMessage: "Please enter your phone number")
+            return false
+        } else {
+            if values[1].characters.count != 10 {
+                showAlert(withMessage: "Please enter a valid phone number of 10 digits")
+                return false
+            }
+        }
+        if values[2] == "" {
+            showAlert(withMessage: "Please enter your email")
+            return false
+        }
+        if values[3] == "" {
+            showAlert(withMessage: "Please enter a message")
+            return false
+        }
+        return true
     }
 }
 

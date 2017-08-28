@@ -46,7 +46,7 @@ class AppointmentsViewController: UIViewController {
             self.tableView.isHidden = false
         } else {
             //self.tableView.isHidden = true
-            showAlertWithMessage(message: "Unfortunately you need an email account setup to request a Mobile Appointment. Please configure an account in Settings and try again.")
+            showAlert(withMessage: "Unfortunately you need an email account setup to request a Mobile Appointment. Please configure an account in Settings and try again.")
         }
     }
     
@@ -128,6 +128,7 @@ extension AppointmentsViewController : UITableViewDelegate, UITableViewDataSourc
             let cell = tableView.dequeueReusableCell(withIdentifier: "textViewCell", for: indexPath) as! TextViewCell
             cell.titleLbl.text = "Nature of Visit"
             cell.delegate = self
+            cell.index = indexPath.row
             cell.textFieldDel = self
             cell.message.text = formValues[indexPath.row]
             return cell
@@ -199,6 +200,15 @@ extension AppointmentsViewController : MFMailComposeViewControllerDelegate {
     
     // MARK: MFMailComposeViewControllerDelegate Method
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        switch result {
+        case .sent:
+            showSuccessAlert(withMessage: "Email has been sent. We will contact you to confirm your appointment.")
+            clearValues()
+        case .failed:
+            showAlert(withMessage: "An error has occurred. Please try again later.")
+        default:
+            break
+        }
         controller.dismiss(animated: true, completion: nil)
     }
     
@@ -215,30 +225,47 @@ extension AppointmentsViewController : MFMailComposeViewControllerDelegate {
 // MARK: - Helpers
 extension AppointmentsViewController {
     
+    func clearValues() {
+        for x in 0..<formValues.count {
+            formValues[x] = ""
+        }
+        tableView.reloadData()
+    }
+    
     func checkTextFields() -> Bool {
         print(formValues)
         if formValues[FormArray.phone.rawValue] == "" {
-            showAlertWithMessage(message: "Please enter your phone number")
+            showAlert(withMessage: "Please enter your phone number")
             return false
+        } else {
+            if formValues[FormArray.phone.rawValue].characters.count != 10 {
+                showAlert(withMessage: "Please enter a valid phone number of 10 digits")
+                return false
+            }
         }
         if formValues[FormArray.streetAddress.rawValue] == "" {
-            showAlertWithMessage(message: "Please enter your street address")
+            showAlert(withMessage: "Please enter your street address")
             return false
         }
         if formValues[FormArray.city.rawValue] == "" {
-            showAlertWithMessage(message: "Please enter your city")
+            showAlert(withMessage: "Please enter your city")
             return false
         }
         if formValues[FormArray.zipCode.rawValue] == "" {
-            showAlertWithMessage(message: "Please enter your zip code")
+            showAlert(withMessage: "Please enter your zip code")
             return false
+        } else {
+            if formValues[FormArray.zipCode.rawValue].characters.count != 5 {
+                showAlert(withMessage: "Please enter a valid zip code of 5 digits")
+                return false
+            }
         }
         if formValues[FormArray.email.rawValue] == "" {
-            showAlertWithMessage(message: "Please enter your email")
+            showAlert(withMessage: "Please enter your email")
             return false
         }
         if formValues[FormArray.date.rawValue] == "" {
-            showAlertWithMessage(message: "Please enter a date for your visit")
+            showAlert(withMessage: "Please enter a date for your visit")
             return false
         }
         return true
@@ -247,19 +274,14 @@ extension AppointmentsViewController {
     func textFieldIsEmpty(index : Int) {
         switch index {
         case 1:
-            showAlertWithMessage(message: "Please enter your phone number")
+            showAlert(withMessage: "Please enter your phone number")
         case 2,4,5:
-            showAlertWithMessage(message: "Please complete your address")
+            showAlert(withMessage: "Please complete your address")
         case 6:
-            showAlertWithMessage(message: "Please enter a date for your visit")
+            showAlert(withMessage: "Please enter a date for your visit")
         default:
             break
         }
-    }
-    
-    func showAlertWithMessage(message : String) {
-        let alert = CustomAlertView()
-        alert.showAlertView(superview: self.view, title: "Mobile Vet", text: message, img:"warning")
     }
 }
 
@@ -267,23 +289,6 @@ extension AppointmentsViewController {
 extension AppointmentsViewController {
     
     func getEmailBody() -> String {
-//        var nameEmpty = true
-//        var address2Empty = true
-//        var petNameEmpty = true
-//        var natureEmpty = true
-//        if formValues[FormArray.name.rawValue] != "" {
-//            nameEmpty = false
-//        }
-//        if formValues[FormArray.address2.rawValue] != "" {
-//            address2Empty = false
-//        }
-//        if formValues[FormArray.petName.rawValue] != "" {
-//            petNameEmpty = false
-//        }
-//        if formValues[FormArray.natureOfVisit.rawValue] != "" {
-//            natureEmpty = false
-//        }
-//        return ""
         if formValues[FormArray.name.rawValue] == "" {
             formValues[FormArray.name.rawValue] = "N/A"
         }
@@ -296,28 +301,8 @@ extension AppointmentsViewController {
         if formValues[FormArray.natureOfVisit.rawValue] == "" {
             formValues[FormArray.natureOfVisit.rawValue] = "N/A"
         }
-        return "Dr. Swanton-Vinson,\n\nI would like to request an appointment on \(formValues[FormArray.date.rawValue]).\n\nMy Information\n\nName: \(formValues[FormArray.name.rawValue])\nAddress: \(formValues[FormArray.streetAddress.rawValue])\nAddress Line 2: \(formValues[FormArray.address2.rawValue])\nCity: \(formValues[FormArray.city.rawValue])\nZIP Code: \(formValues[FormArray.zipCode.rawValue])\nEmail: \(formValues[FormArray.email.rawValue])\nPet Name: \(formValues[FormArray.petName.rawValue])\nNature of Visit: \(formValues[FormArray.natureOfVisit.rawValue])\n\nThank you."
+        return "Dr. Swanton-Vinson,\n\nI would like to request an appointment on \(formValues[FormArray.date.rawValue]).\n\nMy Information\n\nName: \(formValues[FormArray.name.rawValue])\nPhone Number: \(formValues[FormArray.phone.rawValue])\nAddress: \(formValues[FormArray.streetAddress.rawValue])\nAddress Line 2: \(formValues[FormArray.address2.rawValue])\nCity: \(formValues[FormArray.city.rawValue])\nZIP Code: \(formValues[FormArray.zipCode.rawValue])\nEmail: \(formValues[FormArray.email.rawValue])\nPet Name: \(formValues[FormArray.petName.rawValue])\nNature of Visit: \(formValues[FormArray.natureOfVisit.rawValue])\n\nThank you."
      
-    }
-    
-    func returnEverything() -> String {
-        return ""
-    }
-    
-    func returnNoName() -> String {
-        return ""
-    }
-    
-    func returnNoAddress2() -> String {
-        return ""
-    }
-    
-    func returnNoPetName() -> String {
-        return ""
-    }
-    
-    func returnNoNature() -> String {
-        return ""
     }
 }
 

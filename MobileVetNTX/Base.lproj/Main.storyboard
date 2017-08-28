@@ -440,10 +440,10 @@ How it works: You call the clinic number (940)999-0862 and schedule a time for t
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4hI-me-q8b">
-                                <rect key="frame" x="8" y="25" width="359" height="245"/>
+                                <rect key="frame" x="8" y="25" width="359" height="225"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C4I-7u-QkO">
-                                        <rect key="frame" x="2" y="2" width="355" height="240"/>
+                                        <rect key="frame" x="2" y="2" width="355" height="220"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Office Hours" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GP6-qw-l4l">
                                                 <rect key="frame" x="120" y="8" width="115.5" height="23"/>
@@ -452,40 +452,40 @@ How it works: You call the clinic number (940)999-0862 and schedule a time for t
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="CNq-l4-IGD">
-                                                <rect key="frame" x="10" y="36" width="335" height="174"/>
+                                                <rect key="frame" x="10" y="33" width="335" height="157"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monday: 8:30 AM to 6:00 PM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tmH-E0-I7U">
-                                                        <rect key="frame" x="0.0" y="0.0" width="335" height="29"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="335" height="26"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tuesday: 8:30 AM to 6:00 PM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iBp-zE-vBs">
-                                                        <rect key="frame" x="0.0" y="29" width="335" height="29"/>
+                                                        <rect key="frame" x="0.0" y="26" width="335" height="26.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wednesday: 8:30 AM to 6:00 PM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YjJ-oF-Ics">
-                                                        <rect key="frame" x="0.0" y="58" width="335" height="29"/>
+                                                        <rect key="frame" x="0.0" y="52.5" width="335" height="26"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thursday: 8:30 AM to 6:00 PM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yuk-JM-lwZ">
-                                                        <rect key="frame" x="0.0" y="87" width="335" height="29"/>
+                                                        <rect key="frame" x="0.0" y="78.5" width="335" height="26"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friday: 8:30 AM to 6:00 PM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EA3-Hf-Pbe">
-                                                        <rect key="frame" x="0.0" y="116" width="335" height="29"/>
+                                                        <rect key="frame" x="0.0" y="104.5" width="335" height="26.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saturday &amp; Sunday: By Appointment Only" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OyV-iH-1if">
-                                                        <rect key="frame" x="0.0" y="145" width="335" height="29"/>
+                                                        <rect key="frame" x="0.0" y="131" width="335" height="26"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -493,7 +493,7 @@ How it works: You call the clinic number (940)999-0862 and schedule a time for t
                                                 </subviews>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kwr-Id-ifp">
-                                                <rect key="frame" x="257" y="205" width="90" height="32"/>
+                                                <rect key="frame" x="257" y="185" width="90" height="32"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <state key="normal" title="Back To Info"/>
                                                 <connections>
@@ -503,19 +503,19 @@ How it works: You call the clinic number (940)999-0862 and schedule a time for t
                                         </subviews>
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="240" id="H6d-3h-3ca"/>
+                                            <constraint firstAttribute="height" constant="220" id="H6d-3h-3ca"/>
                                             <constraint firstAttribute="trailing" secondItem="kwr-Id-ifp" secondAttribute="trailing" constant="8" id="L9N-sN-zQg"/>
                                             <constraint firstItem="GP6-qw-l4l" firstAttribute="centerX" secondItem="C4I-7u-QkO" secondAttribute="centerX" id="RCs-dN-8Cd"/>
                                             <constraint firstAttribute="bottom" secondItem="kwr-Id-ifp" secondAttribute="bottom" constant="3" id="UIl-gN-A3w"/>
                                             <constraint firstItem="GP6-qw-l4l" firstAttribute="top" secondItem="C4I-7u-QkO" secondAttribute="top" constant="8" id="ay7-NR-XQg"/>
                                             <constraint firstAttribute="trailing" secondItem="CNq-l4-IGD" secondAttribute="trailing" constant="10" id="eR7-LG-fBf"/>
-                                            <constraint firstItem="CNq-l4-IGD" firstAttribute="top" secondItem="GP6-qw-l4l" secondAttribute="bottom" constant="5" id="jbO-Yl-Exq"/>
+                                            <constraint firstItem="CNq-l4-IGD" firstAttribute="top" secondItem="GP6-qw-l4l" secondAttribute="bottom" constant="2" id="jbO-Yl-Exq"/>
                                             <constraint firstAttribute="bottom" secondItem="CNq-l4-IGD" secondAttribute="bottom" constant="30" id="olz-7W-c9U"/>
                                             <constraint firstItem="CNq-l4-IGD" firstAttribute="leading" secondItem="C4I-7u-QkO" secondAttribute="leading" constant="10" id="sfe-6t-0hC"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2gi-5b-vBt">
-                                        <rect key="frame" x="2" y="2" width="355" height="240"/>
+                                        <rect key="frame" x="2" y="2" width="355" height="220"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="VpL-Pw-v9k">
                                                 <rect key="frame" x="0.0" y="0.0" width="355" height="80"/>
@@ -525,19 +525,19 @@ How it works: You call the clinic number (940)999-0862 and schedule a time for t
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mobile Veterinary Clinic of North Texas" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RNM-fe-2qS">
-                                                <rect key="frame" x="29" y="90" width="297" height="50.5"/>
+                                                <rect key="frame" x="29" y="80" width="297" height="50.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sanger, TX 76266" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U2L-8f-P9s">
-                                                <rect key="frame" x="108" y="142.5" width="139" height="20.5"/>
+                                                <rect key="frame" x="108" y="132.5" width="139" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.24066952720207258" green="0.24066952720207258" blue="0.24066952720207258" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VQ9-Hz-MlK">
-                                                <rect key="frame" x="94" y="168" width="167.5" height="30"/>
+                                                <rect key="frame" x="94" y="156" width="167.5" height="30"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1RJ-sb-BVj">
                                                         <rect key="frame" x="0.0" y="0.0" width="53.5" height="30"/>
@@ -555,7 +555,7 @@ How it works: You call the clinic number (940)999-0862 and schedule a time for t
                                                 </subviews>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qFv-1F-H2n">
-                                                <rect key="frame" x="255" y="200" width="92" height="32"/>
+                                                <rect key="frame" x="255" y="180" width="92" height="32"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <state key="normal" title="Office Hours"/>
                                                 <connections>
@@ -565,14 +565,14 @@ How it works: You call the clinic number (940)999-0862 and schedule a time for t
                                         </subviews>
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstItem="VQ9-Hz-MlK" firstAttribute="top" secondItem="U2L-8f-P9s" secondAttribute="bottom" constant="5" id="8gU-jx-EZC"/>
+                                            <constraint firstItem="VQ9-Hz-MlK" firstAttribute="top" secondItem="U2L-8f-P9s" secondAttribute="bottom" constant="3" id="8gU-jx-EZC"/>
                                             <constraint firstAttribute="trailing" secondItem="RNM-fe-2qS" secondAttribute="trailing" constant="29" id="D2I-Fh-7ds"/>
                                             <constraint firstItem="VQ9-Hz-MlK" firstAttribute="centerX" secondItem="RNM-fe-2qS" secondAttribute="centerX" id="DhD-PF-bAQ"/>
                                             <constraint firstItem="VpL-Pw-v9k" firstAttribute="leading" secondItem="2gi-5b-vBt" secondAttribute="leading" id="IeH-Vh-0Ru"/>
                                             <constraint firstItem="VpL-Pw-v9k" firstAttribute="top" secondItem="2gi-5b-vBt" secondAttribute="top" id="Kl3-nQ-lKb"/>
                                             <constraint firstAttribute="bottom" secondItem="qFv-1F-H2n" secondAttribute="bottom" constant="8" id="N9d-Dp-WC6"/>
-                                            <constraint firstAttribute="height" constant="240" id="aeT-Rz-wMH"/>
-                                            <constraint firstItem="RNM-fe-2qS" firstAttribute="top" secondItem="VpL-Pw-v9k" secondAttribute="bottom" constant="10" id="boR-W7-VVR"/>
+                                            <constraint firstAttribute="height" constant="220" id="aeT-Rz-wMH"/>
+                                            <constraint firstItem="RNM-fe-2qS" firstAttribute="top" secondItem="VpL-Pw-v9k" secondAttribute="bottom" id="boR-W7-VVR"/>
                                             <constraint firstAttribute="trailing" secondItem="VpL-Pw-v9k" secondAttribute="trailing" id="eFU-La-Lu6"/>
                                             <constraint firstItem="U2L-8f-P9s" firstAttribute="centerX" secondItem="RNM-fe-2qS" secondAttribute="centerX" id="gg4-IA-5Ay"/>
                                             <constraint firstItem="RNM-fe-2qS" firstAttribute="leading" secondItem="2gi-5b-vBt" secondAttribute="leading" constant="29" id="rbJ-so-rzr"/>
@@ -585,7 +585,7 @@ How it works: You call the clinic number (940)999-0862 and schedule a time for t
                                 <constraints>
                                     <constraint firstItem="C4I-7u-QkO" firstAttribute="top" secondItem="4hI-me-q8b" secondAttribute="top" constant="2" id="HUV-me-23b"/>
                                     <constraint firstItem="C4I-7u-QkO" firstAttribute="leading" secondItem="4hI-me-q8b" secondAttribute="leading" constant="2" id="JGt-qm-LNW"/>
-                                    <constraint firstAttribute="height" constant="245" id="SYi-WA-KxE"/>
+                                    <constraint firstAttribute="height" constant="225" id="SYi-WA-KxE"/>
                                     <constraint firstItem="2gi-5b-vBt" firstAttribute="leading" secondItem="4hI-me-q8b" secondAttribute="leading" constant="2" id="a8S-Gb-yLR"/>
                                     <constraint firstAttribute="trailing" secondItem="C4I-7u-QkO" secondAttribute="trailing" constant="2" id="abK-Vp-whz"/>
                                     <constraint firstAttribute="trailing" secondItem="2gi-5b-vBt" secondAttribute="trailing" constant="2" id="gmS-jC-tWv"/>
@@ -593,17 +593,52 @@ How it works: You call the clinic number (940)999-0862 and schedule a time for t
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Send us a message" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ecS-xO-YTR">
-                                <rect key="frame" x="10" y="278" width="355" height="23"/>
+                                <rect key="frame" x="10" y="255" width="355" height="23"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="h0v-uf-QgL">
-                                <rect key="frame" x="0.0" y="306" width="375" height="312"/>
+                                <rect key="frame" x="0.0" y="281" width="375" height="337"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="textViewCell" rowHeight="100" id="mDz-vX-zKz" customClass="TextViewCell" customModule="MobileVetNTX" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mDz-vX-zKz" id="GJi-zr-JEZ">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RgO-DA-JpF">
+                                                    <rect key="frame" x="10" y="8" width="42" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="2YH-b5-Q0y">
+                                                    <rect key="frame" x="10" y="33.5" width="355" height="61.5"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstItem="RgO-DA-JpF" firstAttribute="top" secondItem="GJi-zr-JEZ" secondAttribute="top" constant="8" id="GGN-JG-TaK"/>
+                                                <constraint firstItem="RgO-DA-JpF" firstAttribute="leading" secondItem="GJi-zr-JEZ" secondAttribute="leading" constant="10" id="QK8-TV-It2"/>
+                                                <constraint firstItem="2YH-b5-Q0y" firstAttribute="top" secondItem="RgO-DA-JpF" secondAttribute="bottom" constant="5" id="YeK-92-xuS"/>
+                                                <constraint firstItem="2YH-b5-Q0y" firstAttribute="leading" secondItem="GJi-zr-JEZ" secondAttribute="leading" constant="10" id="af4-nA-XG6"/>
+                                                <constraint firstAttribute="bottom" secondItem="2YH-b5-Q0y" secondAttribute="bottom" constant="5" id="gjb-hN-hge"/>
+                                                <constraint firstAttribute="trailing" secondItem="2YH-b5-Q0y" secondAttribute="trailing" constant="10" id="nsj-J0-HnR"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="message" destination="2YH-b5-Q0y" id="XW4-jk-fh9"/>
+                                            <outlet property="titleLbl" destination="RgO-DA-JpF" id="caD-an-Xys"/>
+                                        </connections>
+                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="submitCell" rowHeight="60" id="odc-iB-Ar0" customClass="ButtonCell" customModule="MobileVetNTX" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="60"/>
+                                        <rect key="frame" x="0.0" y="128" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="odc-iB-Ar0" id="ltd-fH-s9P">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
@@ -634,7 +669,7 @@ How it works: You call the clinic number (940)999-0862 and schedule a time for t
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="textFieldCell" rowHeight="100" id="ufZ-Jd-mjQ" customClass="TextFieldCell" customModule="MobileVetNTX" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="88" width="375" height="100"/>
+                                        <rect key="frame" x="0.0" y="188" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ufZ-Jd-mjQ" id="0bI-wT-f6N">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
@@ -671,14 +706,6 @@ How it works: You call the clinic number (940)999-0862 and schedule a time for t
                                             <outlet property="titleLbl" destination="K82-8r-8RQ" id="szW-19-aRr"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="tpQ-Mg-Ov6">
-                                        <rect key="frame" x="0.0" y="188" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tpQ-Mg-Ov6" id="ada-Zq-5os">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="SmY-4Z-jW9" id="end-ye-0VV"/>
@@ -696,8 +723,8 @@ How it works: You call the clinic number (940)999-0862 and schedule a time for t
                             <constraint firstAttribute="trailing" secondItem="4hI-me-q8b" secondAttribute="trailing" constant="8" id="TV9-Yz-jgo"/>
                             <constraint firstItem="4hI-me-q8b" firstAttribute="top" secondItem="rMX-wG-3cP" secondAttribute="bottom" constant="5" id="h8V-H1-nOH"/>
                             <constraint firstItem="ecS-xO-YTR" firstAttribute="leading" secondItem="qxD-Ti-Tv3" secondAttribute="leading" constant="10" id="npU-tn-2z2"/>
-                            <constraint firstItem="h0v-uf-QgL" firstAttribute="top" secondItem="ecS-xO-YTR" secondAttribute="bottom" constant="5" id="o7R-tf-TFS"/>
-                            <constraint firstItem="ecS-xO-YTR" firstAttribute="top" secondItem="4hI-me-q8b" secondAttribute="bottom" constant="8" id="y0d-KE-Hnq"/>
+                            <constraint firstItem="h0v-uf-QgL" firstAttribute="top" secondItem="ecS-xO-YTR" secondAttribute="bottom" constant="3" id="o7R-tf-TFS"/>
+                            <constraint firstItem="ecS-xO-YTR" firstAttribute="top" secondItem="4hI-me-q8b" secondAttribute="bottom" constant="5" id="y0d-KE-Hnq"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Contact Us" image="contact" id="EzH-SH-72o"/>
@@ -706,6 +733,7 @@ How it works: You call the clinic number (940)999-0862 and schedule a time for t
                         <outlet property="hoursView" destination="C4I-7u-QkO" id="fkb-AX-isa"/>
                         <outlet property="infoView" destination="2gi-5b-vBt" id="rfj-iP-AGt"/>
                         <outlet property="tableBottom" destination="CUO-Y5-OTo" id="ZRL-Yk-cvy"/>
+                        <outlet property="tableView" destination="h0v-uf-QgL" id="ily-7P-TMV"/>
                         <outlet property="weekendHours" destination="OyV-iH-1if" id="wnv-dF-OYD"/>
                     </connections>
                 </viewController>

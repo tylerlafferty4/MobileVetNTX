@@ -31,4 +31,14 @@ extension UIViewController: UITextFieldDelegate{
     func cancelPressed(){
         view.endEditing(true) // or do something
     }
+    
+    func showSuccessAlert(withMessage message : String) {
+        let alert = CustomAlertView()
+        alert.showAlertView(superview: self.view, title: "Mobile Vet", text: message, img: "checkmark")
+    }
+    
+    func showAlert(withMessage message : String) {
+        let alert = CustomAlertView()
+        alert.showAlertView(superview: self.view, title: "Mobile Vet", text: message, img:"warning")
+    }
 }

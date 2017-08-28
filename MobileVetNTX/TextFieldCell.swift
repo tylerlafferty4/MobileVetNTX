@@ -49,6 +49,25 @@ class TextFieldCell : UITableViewCell, UITextFieldDelegate {
         }
     }
     
+    func setupContactUs(indexPath : IndexPath) {
+        index = indexPath.row
+        textBox.keyboardType = .default
+        textBox.tag = indexPath.row
+        textBox.delegate = self
+        switch indexPath.row {
+        case 0:
+            titleLbl.text = "Name *"
+        case 1:
+            titleLbl.text = "Phone *"
+            textBox.keyboardType = .numberPad
+        case 2:
+            titleLbl.text = "Email *"
+            textBox.keyboardType = .emailAddress
+        default:
+            titleLbl.text = ""
+        }
+    }
+    
     func setupCell(indexPath : IndexPath) {
         index = indexPath.row
         textBox.keyboardType = .default
@@ -59,7 +78,7 @@ class TextFieldCell : UITableViewCell, UITextFieldDelegate {
             titleLbl.text = "Name"
         case 1:
             titleLbl.text = "Phone *"
-            textBox.keyboardType = .phonePad
+            textBox.keyboardType = .numberPad
         case 2:
             titleLbl.text = "Street Address *"
         case 3:
