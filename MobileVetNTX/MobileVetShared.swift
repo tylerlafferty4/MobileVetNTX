@@ -25,7 +25,7 @@ extension UIViewController: UITextFieldDelegate{
         textField.delegate = self
         textField.inputAccessoryView = toolBar
     }
-    func donePressed(){
+    @objc func donePressed(){
         view.endEditing(true)
     }
     func cancelPressed(){

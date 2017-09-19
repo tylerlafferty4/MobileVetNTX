@@ -71,13 +71,13 @@ extension OnlineStoreViewController : UIWebViewDelegate {
 // MARK: - Button Naviagation
 extension OnlineStoreViewController {
     
-    func goBack() {
+    @objc func goBack() {
         if webView.canGoBack {
             webView.goBack()
         }
     }
     
-    func goForward() {
+    @objc func goForward() {
         if webView.canGoForward {
             webView.goForward()
         }

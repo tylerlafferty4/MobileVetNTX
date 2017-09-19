@@ -99,13 +99,13 @@ public class CustomAlertView : UIView {
     // -- the alert view. If no actions are passed in, the button will
     // -- just dismiss the alert.
     // ------------------------------------------------------------
-    func buttonTap() {
+    @objc func buttonTap() {
         if confirm != nil {
             confirm.handler()
         }
         closeAlert()
     }
-    func cancelButtonTap() {
+    @objc func cancelButtonTap() {
         if cancel != nil {
             cancel.handler()
         }
@@ -149,7 +149,7 @@ extension CustomAlertView {
         titleLbl.font = UIFont(name: "HelveticaNeue-Light", size: 24)
         titleLbl.text = title
         let titleString = titleLbl.text! as NSString
-        let titleAttr = [NSFontAttributeName:titleLbl.font]
+        let titleAttr = [NSAttributedStringKey.font:titleLbl.font]
         let titleSize = CGSize(width: contentWidth, height: 90)
         let titleRect = titleString.boundingRect(with: titleSize, options: .usesLineFragmentOrigin, attributes: titleAttr, context: nil)
         yPos += padding
@@ -170,7 +170,7 @@ extension CustomAlertView {
         textView.backgroundColor = UIColor.clear
         textView.text = text
         let textString = textView.text! as NSString
-        let textAttr = [NSFontAttributeName:textView.font as AnyObject]
+        let textAttr = [NSAttributedStringKey.font:textView.font as AnyObject]
         let realSize = textView.sizeThatFits(CGSize(width: contentWidth, height: CGFloat.greatestFiniteMagnitude))//CGSizeMake(contentWidth, CGFloat.max))
         let textSize = CGSize(width: contentWidth, height: CGFloat(fmaxf(Float(90.0), Float(realSize.height))))
         let textRect = textString.boundingRect(with: textSize, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: textAttr, context: nil)

@@ -51,11 +51,11 @@ class ContactUsViewController : UIViewController {
         return .lightContent
     }
     
-    func keyboardWillShowNotification(notification: NSNotification) {
+    @objc func keyboardWillShowNotification(notification: NSNotification) {
         updateBottomLayoutConstraintWithNotification(notification: notification)
     }
     
-    func keyboardWillHideNotification(notification: NSNotification) {
+    @objc func keyboardWillHideNotification(notification: NSNotification) {
         updateBottomLayoutConstraintWithNotification(notification: notification)
     }
     
